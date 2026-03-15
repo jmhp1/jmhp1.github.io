@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Decisio — Integrated Decision System Designer</title>
+  <meta name="description" content="Ayudo a pequeñas empresas a decidir mejor con sus propios datos. Diseño sistemas integrados de decisión: Data Warehouse, ETL, métricas y dashboards." />
+  <meta name="author" content="Decisio" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #1a1a2e;
+      --teal: #0F9B8E;
+      --teal-light: #5DCEC6;
+      --teal-bg: #E0F5F3;
+      --coral: #D4622A;
+      --sand: #F7F4EE;
+      --sand-dark: #EDE8DC;
+      --white: #ffffff;
+      --text-muted: #6b7280;
+      --text-light: rgba(255,255,255,0.6);
+      --font-display: 'DM Serif Display', serif;
+      --font-body: 'Outfit', sans-serif;
+      --font-mono: 'DM Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--sand);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 1.25rem 2rem;
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(247,244,238,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(15,155,142,0.1);
+      transition: all 0.3s;
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+    .nav-logo span { color: var(--teal); }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 400;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--teal); }
+    .nav-cta {
+      font-size: 0.8rem !important;
+      color: var(--teal) !important;
+      border: 1px solid var(--teal);
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-weight: 500 !important;
+      transition: all 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--teal) !important; color: white !important; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      background: var(--ink);
+      display: flex; align-items: center;
+      position: relative; overflow: hidden;
+      padding: 7rem 2rem 5rem;
+    }
+    .hero-orb1 {
+      position: absolute; top: -120px; right: -120px;
+      width: 500px; height: 500px; border-radius: 50%;
+      background: var(--teal); opacity: 0.07;
+      animation: float 8s ease-in-out infinite;
+    }
+    .hero-orb2 {
+      position: absolute; bottom: -80px; left: -60px;
+      width: 300px; height: 300px; border-radius: 50%;
+      background: var(--coral); opacity: 0.06;
+      animation: float 11s ease-in-out infinite reverse;
+    }
+    .hero-orb3 {
+      position: absolute; top: 40%; left: 30%;
+      width: 200px; height: 200px; border-radius: 50%;
+      background: var(--teal-light); opacity: 0.04;
+      animation: float 14s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-30px) scale(1.03); }
+    }
+    .hero-inner {
+      max-width: 860px; margin: 0 auto; position: relative; z-index: 1;
+    }
+    .hero-tag {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--teal-light);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.2s;
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      color: var(--white);
+      line-height: 1.0;
+      margin-bottom: 1rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.4s;
+    }
+    .hero-title span { color: var(--teal-light); }
+    .hero-subtitle {
+      font-family: var(--font-display);
+      font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+      color: rgba(255,255,255,0.5);
+      font-style: italic;
+      margin-bottom: 2.5rem;
+      line-height: 1.5;
+      max-width: 560px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.6s;
+    }
+    .hero-desc {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.8;
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.75s;
+    }
+    .hero-actions {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.9s;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: var(--teal);
+      color: white;
+      text-decoration: none;
+      padding: 0.85rem 2rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.25s;
+      letter-spacing: 0.01em;
+    }
+    .btn-primary:hover { background: var(--teal-light); transform: translateY(-2px); }
+    .btn-outline {
+      display: inline-block;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      padding: 0.85rem 2rem;
+      border-radius: 4px;
+      border: 1px solid rgba(255,255,255,0.15);
+      font-size: 0.9rem;
+      font-weight: 400;
+      transition: all 0.25s;
+    }
+    .btn-outline:hover { border-color: rgba(255,255,255,0.4); color: white; }
+    .hero-constraint {
+      margin-top: 2.5rem;
+      display: flex; align-items: center; gap: 0.75rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 1.05s;
+    }
+    .constraint-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--teal); flex-shrink: 0;
+      box-shadow: 0 0 0 3px rgba(15,155,142,0.2);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 3px rgba(15,155,142,0.2); }
+      50% { box-shadow: 0 0 0 6px rgba(15,155,142,0.1); }
+    }
+    .constraint-text {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.35);
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* SECTIONS */
+    section { padding: 6rem 2rem; }
+    .section-inner { max-width: 860px; margin: 0 auto; }
+    .section-tag {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--teal);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--ink);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .section-lead {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      max-width: 580px;
+      font-weight: 300;
+    }
+
+    /* WHAT I DO */
+    .what { background: var(--white); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+      margin-top: 3rem;
+    }
+    .service-card {
+      background: var(--sand);
+      border-radius: 12px;
+      padding: 1.75rem;
+      border: 1px solid transparent;
+      transition: all 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--teal);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+    .service-card:hover { border-color: rgba(15,155,142,0.2); transform: translateY(-3px); }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-icon {
+      width: 40px; height: 40px;
+      background: var(--teal-bg);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+    .service-icon svg { width: 18px; height: 18px; stroke: var(--teal); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .service-name {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+    .service-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* PROJECTS */
+    .projects-section { background: var(--sand); }
+    .projects-list { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1px; }
+    .project-item {
+      display: flex; align-items: center; gap: 1.5rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid rgba(26,26,46,0.08);
+      transition: all 0.2s;
+      cursor: default;
+    }
+    .project-item:hover { padding-left: 0.5rem; }
+    .project-num {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--teal);
+      min-width: 28px;
+    }
+    .project-name {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--ink);
+      flex: 1;
+    }
+    .project-tag {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      background: var(--sand-dark);
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    /* ABOUT */
+    .about-section { background: var(--ink); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin-top: 3rem;
+    }
+    @media (max-width: 640px) { .about-grid { grid-template-columns: 1fr; gap: 2rem; } }
+    .about-text {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.9;
+      font-weight: 300;
+    }
+    .about-text p { margin-bottom: 1.25rem; }
+    .about-text p:last-child { margin-bottom: 0; }
+    .about-text em { color: var(--teal-light); font-style: normal; }
+    .about-aside {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.25);
+      font-style: italic;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      line-height: 1.7;
+    }
+    .about-stats { display: flex; flex-direction: column; gap: 1.25rem; }
+    .stat-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      color: var(--teal-light);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .stat-label {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.5;
+    }
+
+    /* CONTACT */
+    .contact-section { background: var(--white); }
+    .contact-inner {
+      max-width: 580px;
+      margin: 3rem auto 0;
+      text-align: center;
+    }
+    .contact-card {
+      background: var(--sand);
+      border-radius: 16px;
+      padding: 3rem 2rem;
+      border: 1px solid rgba(15,155,142,0.15);
+    }
+    .contact-card p {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+    .contact-email {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      color: var(--teal);
+      border: 1px solid var(--teal);
+      padding: 0.75rem 1.75rem;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: all 0.25s;
+    }
+    .contact-email:hover { background: var(--teal); color: white; }
+
+    /* FOOTER */
+    footer {
+      background: var(--ink);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 0.5rem;
+    }
+    .footer-logo span { color: var(--teal); }
+    .footer-sub {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.2);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    /* DIVIDER LINE */
+    .teal-line {
+      width: 48px; height: 2px;
+      background: var(--teal);
+      margin: 1.5rem 0;
+    }
+
+    /* MOBILE NAV */
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .hero { padding: 6rem 1.25rem 4rem; }
+      section { padding: 4rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">Decis<span>io</span></a>
+    <div class="nav-links">
+      <a href="#servicios">Servicios</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#contacto" class="nav-cta">Hablemos</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-orb1"></div>
+    <div class="hero-orb2"></div>
+    <div class="hero-orb3"></div>
+    <div class="hero-inner">
+      <div class="hero-tag">Integrated Decision System Designer</div>
+      <h1 class="hero-title">Tus datos<br>tienen<br><span>respuestas.</span></h1>
+      <p class="hero-subtitle">Ayudo a empresas a decidir mejor<br>— con sus propios datos.</p>
+      <p class="hero-desc">
+        No solo construyo ETLs o dashboards. Diseño el sistema completo que conecta tus datos con tus decisiones: desde la infraestructura hasta las métricas que tu equipo necesita para actuar con confianza.
+      </p>
+      <div class="hero-actions">
+        <a href="#contacto" class="btn-primary">Cuéntame tu proyecto</a>
+        <a href="#servicios" class="btn-outline">Ver servicios</a>
+      </div>
+      <div class="hero-constraint">
+        <div class="constraint-dot"></div>
+        <span class="constraint-text">Trabajo con un máximo de 2 clientes a la vez — para hacerlo bien.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="what" id="servicios">
+    <div class="section-inner">
+      <div class="section-tag">Lo que hago</div>
+      <h2 class="section-title">Construyo el sistema que hace<br>que tus datos trabajen para ti</h2>
+      <div class="teal-line"></div>
+      <p class="section-lead">No me interesan los proyectos de adorno. Me interesan los que resuelven algo real: saber qué está pasando en tu negocio, detectar problemas antes de que duelan, y tomar decisiones con fundamento.</p>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          </div>
+          <div class="service-name">Data Warehouse y ETL</div>
+          <div class="service-desc">Modelos de datos escalables y pipelines robustos que aguantan el crecimiento de tu negocio.</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div class="service-name">Calidad del dato</div>
+          <div class="service-desc">Análisis de métricas, tendencias y series temporales. Estadística sin humo.</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          </div>
+          <div class="service-name">Dashboards</div>
+          <div class="service-desc">Visualizaciones que se entienden a la primera, para quien las necesite, cuando las necesite.</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <div class="service-name">Integración de fuentes</div>
+          <div class="service-desc">Uno datos dispersos de distintas herramientas en un único sitio coherente y fiable.</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="service-name">Definición de métricas</div>
+          <div class="service-desc">Trabajo con tu equipo para definir los KPIs que importan, con fórmulas claras y fuentes únicas.</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div class="service-name">Proyecto starter</div>
+          <div class="service-desc">Auditoría de calidad del dato: el punto de entrada ideal. Acotado, con precio fijo, y con resultados reales.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROYECTOS -->
+  <section class="projects-section" id="proyectos">
+    <div class="section-inner">
+      <div class="section-tag">Proyectos que me interesan</div>
+      <h2 class="section-title">Trabajo bien cuando hay<br>un problema real que resolver</h2>
+      <div class="teal-line"></div>
+      <div class="projects-list">
+        <div class="project-item">
+          <span class="project-num">01</span>
+          <span class="project-name">Construcción de Data Warehouses desde cero</span>
+          <span class="project-tag">5.000 – 10.000€</span>
+        </div>
+        <div class="project-item">
+          <span class="project-num">02</span>
+          <span class="project-name">DWH + BI full stack</span>
+          <span class="project-tag">8.000 – 15.000€</span>
+        </div>
+        <div class="project-item">
+          <span class="project-num">03</span>
+          <span class="project-name">Auditorías de calidad del dato</span>
+          <span class="project-tag">1.500 – 2.500€</span>
+        </div>
+        <div class="project-item">
+          <span class="project-num">04</span>
+          <span class="project-name">Definición de métricas con equipo interno</span>
+          <span class="project-tag">2.000 – 3.500€</span>
+        </div>
+        <div class="project-item">
+          <span class="project-num">05</span>
+          <span class="project-name">Automatización de reportes y pipelines</span>
+          <span class="project-tag">A medida</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE MÍ -->
+  <section class="about-section" id="sobre-mi">
+    <div class="section-inner">
+      <div class="section-tag" style="color:var(--teal-light);">Sobre mí</div>
+      <h2 class="section-title" style="color:white;">De medir el océano<br>a medir tu negocio</h2>
+      <div class="teal-line"></div>
+      <div class="about-grid">
+        <div>
+          <div class="about-text">
+            <p>Empecé como <em>oceanógrafo</em> — midiendo, analizando y tratando de entender sistemas complejos con datos imperfectos. Con el tiempo descubrí que ese mismo trabajo existe en casi cualquier empresa.</p>
+            <p>Hoy diseño <em>sistemas integrados de decisión</em>: la infraestructura de datos, las métricas y los dashboards que permiten a un equipo tomar decisiones con confianza en lugar de intuición.</p>
+            <p>Priorizo la calidad sobre la cantidad. Trabajo despacio y con robustez. Soy honesto sobre lo que sé y lo que no. Y si me das la oportunidad, creo que lo notarás.</p>
+            <div class="about-aside">Dato random: me apasionan el cachopo, las albóndigas en salsa y la sopa de mi abuela. Si sabes de un sitio bueno, hablamos.</div>
+          </div>
+        </div>
+        <div class="about-stats">
+          <div class="stat-card">
+            <div class="stat-number">2</div>
+            <div class="stat-label">Clientes máximo simultáneos. Tu proyecto recibe atención real.</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">∞</div>
+            <div class="stat-label">Confidencialidad. Tus datos nunca salen del proyecto.</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">0</div>
+            <div class="stat-label">Conflictos de interés. Declaro cualquier solapamiento antes de empezar.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="contact-section" id="contacto">
+    <div class="section-inner">
+      <div style="text-align:center;">
+        <div class="section-tag" style="text-align:center;">Contacto</div>
+        <h2 class="section-title">¿Tienes un proyecto en mente?</h2>
+        <div class="teal-line" style="margin:1.5rem auto;"></div>
+      </div>
+      <div class="contact-inner">
+        <div class="contact-card">
+          <p>Cuéntame brevemente qué necesitas. Si encaja con lo que hago, te respondo en 24 horas y quedamos para hablar sin compromiso.</p>
+          <a href="mailto:hola@decisio.es" class="contact-email">hola@decisio.es</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Decis<span>io</span></div>
+    <div class="footer-sub">Integrated Decision System Designer &nbsp;·&nbsp; España</div>
+  </footer>
+
+</body>
+</html>
