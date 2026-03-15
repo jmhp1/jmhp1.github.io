@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Decisio — Integrated Decision System Designer</title>
-  <meta name="description" content="Ayudo a pequeñas empresas a decidir mejor con sus propios datos." />
+  <meta name="description" content="Diseño sistemas integrados de decisión para pequeñas empresas. Del dato a la decisión." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -45,97 +45,35 @@
     nav.scrolled .nav-cta { border-color: var(--teal) !important; color: var(--teal) !important; }
     nav.scrolled .nav-cta:hover { background: var(--teal) !important; color: white !important; }
     .nav-cta:hover { background: rgba(255,255,255,0.1) !important; color: white !important; }
-
-    /* LANGUAGE SWITCHER */
-    .lang-switcher {
-      display: flex; align-items: center; gap: 2px;
-      background: rgba(255,255,255,0.07); border-radius: 20px; padding: 3px;
-      transition: background 0.4s;
-    }
+    .lang-switcher { display: flex; align-items: center; gap: 2px; background: rgba(255,255,255,0.07); border-radius: 20px; padding: 3px; transition: background 0.4s; }
     nav.scrolled .lang-switcher { background: rgba(26,26,46,0.07); }
-    .lang-btn {
-      font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.05em;
-      color: rgba(255,255,255,0.35); background: none; border: none; cursor: pointer;
-      padding: 4px 9px; border-radius: 16px; transition: all 0.25s; text-transform: uppercase;
-    }
+    .lang-btn { font-family: var(--font-mono); font-size: 0.62rem; color: rgba(255,255,255,0.35); background: none; border: none; cursor: pointer; padding: 4px 9px; border-radius: 16px; transition: all 0.25s; text-transform: uppercase; }
     nav.scrolled .lang-btn { color: rgba(26,26,46,0.35); }
-    .lang-btn.active {
-      background: var(--teal); color: white;
-    }
-    nav.scrolled .lang-btn:not(.active):hover { color: var(--ink); background: rgba(26,26,46,0.06); }
+    .lang-btn.active { background: var(--teal); color: white; }
     .lang-btn:not(.active):hover { color: rgba(255,255,255,0.75); background: rgba(255,255,255,0.1); }
+    nav.scrolled .lang-btn:not(.active):hover { color: var(--ink); background: rgba(26,26,46,0.06); }
 
     /* HERO */
-    .hero {
-      min-height: 100vh; background: var(--ink);
-      display: flex; align-items: center; position: relative; overflow: hidden;
-      padding: 8rem 2.5rem 6rem;
-    }
-    .hero-grid {
-      position: absolute; inset: 0;
-      background-image: linear-gradient(rgba(15,155,142,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(15,155,142,0.05) 1px, transparent 1px);
-      background-size: 64px 64px; animation: gridDrift 24s linear infinite;
-    }
+    .hero { min-height: 100vh; background: var(--ink); display: flex; align-items: center; position: relative; overflow: hidden; padding: 8rem 2.5rem 6rem; }
+    .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(15,155,142,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(15,155,142,0.05) 1px, transparent 1px); background-size: 64px 64px; animation: gridDrift 24s linear infinite; }
     @keyframes gridDrift { 0% { transform: translate(0,0); } 100% { transform: translate(64px,64px); } }
     .orb { position: absolute; border-radius: 50%; pointer-events: none; filter: blur(90px); }
     .orb1 { width: 640px; height: 640px; top: -220px; right: -160px; background: radial-gradient(circle, rgba(15,155,142,0.2) 0%, transparent 70%); animation: orbFloat 14s ease-in-out infinite; }
     .orb2 { width: 420px; height: 420px; bottom: -120px; left: -80px; background: radial-gradient(circle, rgba(212,98,42,0.14) 0%, transparent 70%); animation: orbFloat 18s ease-in-out infinite reverse; }
-    .orb3 { width: 280px; height: 280px; top: 45%; left: 38%; background: radial-gradient(circle, rgba(93,206,198,0.09) 0%, transparent 70%); animation: orbFloat 10s ease-in-out infinite 2s; }
     @keyframes orbFloat { 0%,100% { transform: translate(0,0) scale(1); } 40% { transform: translate(28px,-38px) scale(1.04); } 70% { transform: translate(-18px,18px) scale(0.97); } }
-
-    .hero-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
-    .hero-tag {
-      font-family: var(--font-mono); font-size: 0.64rem; color: var(--teal-light);
-      letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1.75rem;
-      display: flex; align-items: center; gap: 0.75rem;
-      opacity: 0; animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) forwards 0.3s;
-    }
+    .hero-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 1; }
+    .hero-tag { font-family: var(--font-mono); font-size: 0.64rem; color: var(--teal-light); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1.75rem; display: flex; align-items: center; gap: 0.75rem; opacity: 0; animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) forwards 0.3s; }
     .hero-tag::before { content: ''; width: 32px; height: 1px; background: var(--teal); flex-shrink: 0; }
-    .hero-title {
-      font-family: var(--font-display); font-size: clamp(3.8rem, 9vw, 7.5rem);
-      color: var(--white); line-height: 0.95; margin-bottom: 1.5rem; letter-spacing: -0.02em;
-      opacity: 0; animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) forwards 0.5s;
-    }
+    .hero-title { font-family: var(--font-display); font-size: clamp(3.8rem, 9vw, 7.5rem); color: var(--white); line-height: 0.95; margin-bottom: 1.75rem; letter-spacing: -0.02em; opacity: 0; animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) forwards 0.5s; }
     .hero-title .accent { color: var(--teal-light); }
     .hero-title .dim { color: rgba(255,255,255,0.22); font-style: italic; }
-    .hero-tagline {
-      font-family: var(--font-display); font-style: italic;
-      font-size: clamp(1.1rem, 2vw, 1.45rem); color: rgba(255,255,255,0.42);
-      line-height: 1.55; max-width: 480px; margin-bottom: 1.5rem;
-      opacity: 0; animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) forwards 0.65s;
-    }
-    .hero-desc {
-      font-size: 1rem; color: rgba(255,255,255,0.38); line-height: 1.9;
-      max-width: 500px; margin-bottom: 2.5rem; font-weight: 300;
-      opacity: 0; animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) forwards 0.8s;
-    }
-    .hero-actions {
-      display: flex; gap: 1rem; flex-wrap: wrap;
-      opacity: 0; animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) forwards 0.95s;
-    }
-    .btn-primary {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: var(--teal); color: white; text-decoration: none;
-      padding: 0.9rem 2rem; border-radius: 3px; font-size: 0.9rem; font-weight: 500;
-      transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
-    }
+    .hero-desc { font-size: 1.1rem; color: rgba(255,255,255,0.45); line-height: 1.85; max-width: 480px; margin-bottom: 2.5rem; font-weight: 300; opacity: 0; animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) forwards 0.65s; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; opacity: 0; animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) forwards 0.8s; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--teal); color: white; text-decoration: none; padding: 0.9rem 2rem; border-radius: 3px; font-size: 0.9rem; font-weight: 500; transition: all 0.3s cubic-bezier(0.16,1,0.3,1); }
     .btn-primary:hover { background: var(--teal-light); transform: translateY(-3px); box-shadow: 0 14px 36px rgba(15,155,142,0.35); }
-    .btn-ghost {
-      display: inline-flex; align-items: center;
-      color: rgba(255,255,255,0.42); text-decoration: none;
-      padding: 0.9rem 2rem; border-radius: 3px;
-      border: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; transition: all 0.3s;
-    }
+    .btn-ghost { display: inline-flex; align-items: center; color: rgba(255,255,255,0.42); text-decoration: none; padding: 0.9rem 2rem; border-radius: 3px; border: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; transition: all 0.3s; }
     .btn-ghost:hover { border-color: rgba(255,255,255,0.3); color: rgba(255,255,255,0.75); }
-    .hero-constraint {
-      margin-top: 2.75rem; display: flex; align-items: center; gap: 0.875rem;
-      opacity: 0; animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) forwards 1.1s;
-    }
-    .pulse-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--teal); flex-shrink: 0; position: relative; }
-    .pulse-dot::after { content: ''; position: absolute; inset: -4px; border-radius: 50%; border: 1px solid var(--teal); opacity: 0.4; animation: pingPulse 2.5s ease-out infinite; }
-    @keyframes pingPulse { 0% { transform: scale(0.8); opacity: 0.6; } 100% { transform: scale(2.4); opacity: 0; } }
-    .constraint-text { font-family: var(--font-mono); font-size: 0.71rem; color: rgba(255,255,255,0.26); }
-    .scroll-hint { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; opacity: 0; animation: fadeIn 1s ease forwards 1.8s; }
+    .scroll-hint { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; opacity: 0; animation: fadeIn 1s ease forwards 1.5s; }
     .scroll-hint span { font-family: var(--font-mono); font-size: 0.58rem; color: rgba(255,255,255,0.18); letter-spacing: 0.2em; text-transform: uppercase; }
     .scroll-line { width: 1px; height: 36px; background: linear-gradient(to bottom, rgba(255,255,255,0.18), transparent); animation: scrollDrop 2.2s ease-in-out infinite; }
     @keyframes scrollDrop { 0%,100% { opacity: 1; transform: scaleY(1); } 50% { opacity: 0.3; transform: scaleY(0.5); } }
@@ -156,135 +94,63 @@
     .section-tag::before { content: ''; width: 24px; height: 1px; background: var(--teal); }
     .section-title { font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 3.2rem); line-height: 1.1; margin-bottom: 1rem; letter-spacing: -0.015em; }
     .teal-line { width: 40px; height: 2px; background: var(--teal); margin: 1.5rem 0; }
-    .section-lead { font-size: 1.05rem; color: var(--text-muted); line-height: 1.85; max-width: 560px; font-weight: 300; }
+    .section-lead { font-size: 1.05rem; color: var(--text-muted); line-height: 1.85; max-width: 580px; font-weight: 300; }
 
-    /* FLOW SECTION */
-    .flow-section { background: var(--ink); padding: 7rem 2.5rem; overflow: hidden; position: relative; }
+    /* ── FLOW — HORIZONTAL ── */
+    .flow-section { background: var(--ink); overflow: hidden; }
     .flow-section .section-tag { color: var(--teal-light); }
     .flow-section .section-tag::before { background: var(--teal-light); }
     .flow-section .section-title { color: var(--white); }
-    .flow-section .teal-line { background: var(--teal-light); }
-    .flow-section .section-lead { color: rgba(255,255,255,0.45); }
+    .flow-section .section-lead { color: rgba(255,255,255,0.42); }
 
-    .flow-track {
-      position: relative; margin-top: 4rem;
-      display: flex; flex-direction: column; gap: 0;
-    }
+    .flow-scroll-wrap { overflow-x: auto; padding-bottom: 1.5rem; margin-top: 3rem; scrollbar-width: thin; scrollbar-color: rgba(15,155,142,0.3) transparent; }
+    .flow-scroll-wrap::-webkit-scrollbar { height: 4px; }
+    .flow-scroll-wrap::-webkit-scrollbar-track { background: transparent; }
+    .flow-scroll-wrap::-webkit-scrollbar-thumb { background: rgba(15,155,142,0.3); border-radius: 2px; }
 
-    .flow-step {
-      display: grid; grid-template-columns: 220px 80px 1fr;
-      align-items: center; gap: 0;
-      opacity: 0; transform: translateX(-24px);
-      transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
-    }
-    .flow-step.visible { opacity: 1; transform: none; }
-    .flow-step:nth-child(1) { transition-delay: 0.05s; }
-    .flow-step:nth-child(2) { transition-delay: 0.15s; }
-    .flow-step:nth-child(3) { transition-delay: 0.25s; }
-    .flow-step:nth-child(4) { transition-delay: 0.35s; }
-    .flow-step:nth-child(5) { transition-delay: 0.45s; }
-    .flow-step:nth-child(6) { transition-delay: 0.55s; }
-    .flow-step:nth-child(7) { transition-delay: 0.65s; }
+    .flow-track { display: flex; align-items: stretch; gap: 0; min-width: max-content; }
+
+    .flow-node-wrap { display: flex; align-items: center; }
 
     .flow-node {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.09);
-      border-radius: 12px; padding: 1.1rem 1.25rem;
-      transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
-      cursor: default; position: relative;
-    }
-    .flow-node:hover { background: rgba(15,155,142,0.1); border-color: rgba(15,155,142,0.3); transform: translateX(4px); }
-    .flow-node-head { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 4px; }
-    .flow-node-icon {
-      width: 32px; height: 32px; border-radius: 8px;
-      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-    }
-    .flow-node-icon svg { width: 15px; height: 15px; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
-    .flow-node-label { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; }
-    .flow-node-desc { font-size: 0.8rem; color: rgba(255,255,255,0.35); line-height: 1.5; padding-left: 2.5rem; }
-
-    /* node colour variants */
-    .node-source .flow-node-icon { background: rgba(93,206,198,0.15); }
-    .node-source .flow-node-icon svg { stroke: var(--teal-light); }
-    .node-source .flow-node-label { color: var(--teal-light); }
-
-    .node-pipe .flow-node-icon { background: rgba(15,155,142,0.15); }
-    .node-pipe .flow-node-icon svg { stroke: var(--teal); }
-    .node-pipe .flow-node-label { color: var(--teal); }
-
-    .node-quality .flow-node-icon { background: rgba(15,155,142,0.15); }
-    .node-quality .flow-node-icon svg { stroke: var(--teal); }
-    .node-quality .flow-node-label { color: var(--teal); }
-
-    .node-warehouse .flow-node-icon { background: rgba(15,155,142,0.15); }
-    .node-warehouse .flow-node-icon svg { stroke: var(--teal); }
-    .node-warehouse .flow-node-label { color: var(--teal); }
-
-    .node-metrics .flow-node-icon { background: rgba(15,155,142,0.15); }
-    .node-metrics .flow-node-icon svg { stroke: var(--teal); }
-    .node-metrics .flow-node-label { color: var(--teal); }
-
-    .node-dashboard .flow-node-icon { background: rgba(15,155,142,0.15); }
-    .node-dashboard .flow-node-icon svg { stroke: var(--teal); }
-    .node-dashboard .flow-node-label { color: var(--teal); }
-
-    .node-decision .flow-node { background: rgba(15,155,142,0.12); border-color: rgba(15,155,142,0.35); }
-    .node-decision .flow-node-icon { background: var(--teal); }
-    .node-decision .flow-node-icon svg { stroke: white; }
-    .node-decision .flow-node-label { color: var(--teal-light); font-size: 0.7rem; }
-    .node-decision .flow-node-desc { color: rgba(255,255,255,0.5); }
-
-    /* decisio badge on node */
-    .decisio-badge {
-      position: absolute; top: -10px; right: 12px;
-      font-family: var(--font-mono); font-size: 0.58rem;
-      background: var(--teal); color: white;
-      padding: 2px 8px; border-radius: 20px; letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    /* connector column */
-    .flow-connector {
-      display: flex; flex-direction: column; align-items: center;
-      position: relative; align-self: stretch;
-    }
-    .connector-line {
-      width: 1px; flex: 1; min-height: 20px;
-      background: linear-gradient(to bottom, rgba(15,155,142,0.3), rgba(15,155,142,0.1));
-    }
-    .connector-dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: var(--teal); border: 2px solid var(--ink);
-      flex-shrink: 0; margin: 2px 0;
-    }
-    .connector-arrow {
-      font-size: 0.7rem; color: rgba(15,155,142,0.5); margin: 1px 0;
-      line-height: 1;
-    }
-
-    /* source pills */
-    .flow-sources {
-      display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 2.5rem;
-    }
-    .source-pill {
-      display: flex; align-items: center; gap: 6px;
-      font-family: var(--font-mono); font-size: 0.65rem;
-      color: rgba(255,255,255,0.4); letter-spacing: 0.06em;
+      width: 180px; flex-shrink: 0;
       background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
-      padding: 5px 12px; border-radius: 20px; text-transform: uppercase;
-      transition: all 0.25s;
+      border-radius: 12px; padding: 1.25rem 1rem;
+      transition: all 0.3s cubic-bezier(0.16,1,0.3,1); cursor: default;
+      position: relative;
     }
-    .source-pill:hover { color: var(--teal-light); border-color: rgba(93,206,198,0.3); background: rgba(93,206,198,0.05); }
-    .source-pill-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(93,206,198,0.5); flex-shrink: 0; }
+    .flow-node:hover { background: rgba(15,155,142,0.1); border-color: rgba(15,155,142,0.3); transform: translateY(-4px); }
+    .flow-node-top { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+    .flow-icon { width: 30px; height: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .flow-icon svg { width: 14px; height: 14px; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .flow-label { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; line-height: 1.3; }
+    .flow-desc { font-size: 0.75rem; color: rgba(255,255,255,0.32); line-height: 1.55; }
+    .decisio-badge { position: absolute; top: -9px; right: 10px; font-family: var(--font-mono); font-size: 0.52rem; background: var(--teal); color: white; padding: 2px 7px; border-radius: 20px; letter-spacing: 0.06em; text-transform: uppercase; }
 
-    .flow-legend {
-      display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 2.5rem;
-      padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.07);
-    }
+    /* node colours */
+    .node-source .flow-icon { background: rgba(93,206,198,0.15); }
+    .node-source .flow-icon svg { stroke: var(--teal-light); }
+    .node-source .flow-label { color: var(--teal-light); }
+    .node-decisio .flow-icon { background: rgba(15,155,142,0.2); }
+    .node-decisio .flow-icon svg { stroke: var(--teal); }
+    .node-decisio .flow-label { color: var(--teal); }
+    .node-result { background: rgba(15,155,142,0.12) !important; border-color: rgba(15,155,142,0.35) !important; }
+    .node-result .flow-icon { background: var(--teal); }
+    .node-result .flow-icon svg { stroke: white; }
+    .node-result .flow-label { color: var(--teal-light); font-size: 0.65rem; }
+    .node-result .flow-desc { color: rgba(255,255,255,0.5); }
+
+    /* connector arrow */
+    .flow-arrow { display: flex; align-items: center; padding: 0 6px; flex-shrink: 0; }
+    .flow-arrow-inner { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+    .arrow-line { width: 32px; height: 1px; background: linear-gradient(to right, rgba(15,155,142,0.4), rgba(15,155,142,0.2)); }
+    .arrow-head { font-size: 0.65rem; color: rgba(15,155,142,0.5); line-height: 1; }
+
+    .flow-legend { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.07); }
     .legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.75rem; color: rgba(255,255,255,0.3); }
     .legend-dot { width: 8px; height: 8px; border-radius: 2px; flex-shrink: 0; }
 
-    /* SERVICES */
+    /* ── SERVICES ── */
     .what { background: var(--white); }
     .services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; margin-top: 3.5rem; background: rgba(26,26,46,0.07); border: 1px solid rgba(26,26,46,0.07); border-radius: 16px; overflow: hidden; }
     .service-card { background: var(--white); padding: 2rem 1.75rem; transition: all 0.35s cubic-bezier(0.16,1,0.3,1); position: relative; overflow: hidden; }
@@ -300,17 +166,17 @@
     .service-name { font-size: 0.95rem; font-weight: 500; color: var(--ink); margin-bottom: 0.5rem; }
     .service-desc { font-size: 0.83rem; color: var(--text-muted); line-height: 1.75; }
 
-    /* PROJECTS */
+    /* ── PROJECTS ── */
     .projects-section { background: var(--sand); }
     .projects-list { margin-top: 3rem; }
     .project-item { display: flex; align-items: center; gap: 1.5rem; padding: 1.4rem 0; border-bottom: 1px solid rgba(26,26,46,0.07); transition: all 0.3s cubic-bezier(0.16,1,0.3,1); cursor: default; }
     .project-item:hover { padding-left: 0.75rem; }
     .project-num { font-family: var(--font-mono); font-size: 0.68rem; color: var(--teal); min-width: 28px; }
     .project-name { font-size: 1.05rem; font-weight: 400; color: var(--ink); flex: 1; }
-    .project-arrow { color: var(--teal); opacity: 0; transform: translateX(-10px); transition: all 0.3s; font-size: 1rem; }
+    .project-arrow { color: var(--teal); opacity: 0; transform: translateX(-10px); transition: all 0.3s; }
     .project-item:hover .project-arrow { opacity: 1; transform: translateX(0); }
 
-    /* ABOUT */
+    /* ── ABOUT ── */
     .about-section { background: var(--ink); overflow: hidden; position: relative; }
     .about-bg-text { position: absolute; bottom: -3rem; right: -1rem; font-family: var(--font-display); font-size: 20vw; color: rgba(255,255,255,0.025); line-height: 1; pointer-events: none; user-select: none; white-space: nowrap; }
     .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; align-items: start; margin-top: 3.5rem; }
@@ -318,33 +184,31 @@
     .about-text p { margin-bottom: 1.25rem; }
     .about-text p:last-child { margin-bottom: 0; }
     .about-text em { color: var(--teal-light); font-style: normal; font-weight: 400; }
-    .about-aside { font-size: 0.8rem; color: rgba(255,255,255,0.2); font-style: italic; margin-top: 1.75rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.07); line-height: 1.7; }
     .about-stats { display: flex; flex-direction: column; gap: 1rem; }
     .stat-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; padding: 1.5rem; transition: all 0.35s cubic-bezier(0.16,1,0.3,1); }
     .stat-card:hover { background: rgba(15,155,142,0.08); border-color: rgba(15,155,142,0.2); transform: translateX(6px); }
     .stat-number { font-family: var(--font-display); font-size: 2.75rem; color: var(--teal-light); line-height: 1; margin-bottom: 0.4rem; }
     .stat-label { font-size: 0.85rem; color: rgba(255,255,255,0.32); line-height: 1.55; }
 
-    /* CONTACT */
+    /* ── CONTACT ── */
     .contact-section { background: var(--white); }
-    .contact-wrap { max-width: 620px; margin: 3.5rem auto 0; text-align: center; }
+    .contact-wrap { max-width: 580px; margin: 3.5rem auto 0; text-align: center; }
     .contact-card { background: var(--sand); border-radius: 20px; padding: 3.5rem 2.5rem; border: 1px solid rgba(15,155,142,0.12); position: relative; overflow: hidden; }
     .contact-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--teal), transparent); }
     .contact-card p { font-size: 1.05rem; color: var(--text-muted); line-height: 1.85; margin-bottom: 2.25rem; font-weight: 300; }
-    .contact-email { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--font-mono); font-size: 0.9rem; color: var(--teal); border: 1px solid var(--teal); padding: 0.85rem 2rem; border-radius: 3px; text-decoration: none; transition: all 0.3s; letter-spacing: 0.02em; }
+    .contact-email { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--font-mono); font-size: 0.9rem; color: var(--teal); border: 1px solid var(--teal); padding: 0.85rem 2rem; border-radius: 3px; text-decoration: none; transition: all 0.3s; }
     .contact-email:hover { background: var(--teal); color: white; transform: translateY(-2px); box-shadow: 0 10px 28px rgba(15,155,142,0.28); }
 
-    /* FOOTER */
-    footer { background: var(--ink); padding: 2.75rem 2.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; position: relative; z-index: 1; }
+    /* ── FOOTER ── */
+    footer { background: var(--ink); padding: 2.75rem 2.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
     .footer-logo { font-family: var(--font-display); font-size: 1.6rem; color: rgba(255,255,255,0.55); }
     .footer-logo span { color: var(--teal); }
     .footer-right { text-align: right; }
     .footer-tag { font-family: var(--font-mono); font-size: 0.6rem; color: rgba(255,255,255,0.18); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.25rem; }
     .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.13); }
 
-    /* LANG TRANSITION */
+    /* [data-i18n] transition */
     [data-i18n] { transition: opacity 0.2s ease; }
-    .lang-fade { opacity: 0; }
 
     @media (max-width: 768px) {
       nav { padding: 1rem 1.5rem; }
@@ -360,12 +224,13 @@
 </head>
 <body>
 
+  <!-- NAV -->
   <nav id="nav">
     <a href="#" class="nav-logo">Decis<span>io</span></a>
     <div class="nav-right">
       <div class="nav-links">
+        <a href="#flujo" data-i18n="nav.flow">Cómo funciona</a>
         <a href="#servicios" data-i18n="nav.services">Servicios</a>
-        <a href="#proyectos" data-i18n="nav.projects">Proyectos</a>
         <a href="#sobre-mi" data-i18n="nav.about">Sobre mí</a>
         <a href="#contacto" class="nav-cta" data-i18n="nav.cta">Hablemos</a>
       </div>
@@ -377,11 +242,11 @@
     </div>
   </nav>
 
+  <!-- HERO -->
   <section class="hero">
     <div class="hero-grid"></div>
     <div class="orb orb1"></div>
     <div class="orb orb2"></div>
-    <div class="orb orb3"></div>
     <div class="hero-inner">
       <div class="hero-tag">Integrated Decision System Designer</div>
       <h1 class="hero-title">
@@ -389,169 +254,140 @@
         <span class="accent" data-i18n="hero.line2">tienen</span><br>
         <span class="dim" data-i18n="hero.line3">respuestas.</span>
       </h1>
-      <p class="hero-tagline" data-i18n="hero.tagline">Ayudo a empresas a decidir mejor<br>— con sus propios datos.</p>
-      <p class="hero-desc" data-i18n="hero.desc">No solo construyo ETLs o dashboards. Diseño el sistema completo que conecta tus datos con tus decisiones: desde la infraestructura hasta las métricas que tu equipo necesita para actuar con confianza.</p>
+      <p class="hero-desc" data-i18n="hero.desc">Creo el sistema completo que conecta tus datos con tus decisiones.</p>
       <div class="hero-actions">
         <a href="#contacto" class="btn-primary" data-i18n="hero.cta1">Cuéntame tu proyecto →</a>
-        <a href="#servicios" class="btn-ghost" data-i18n="hero.cta2">Ver servicios</a>
+        <a href="#flujo" class="btn-ghost" data-i18n="hero.cta2">Cómo funciona</a>
       </div>
-
     </div>
     <div class="scroll-hint"><div class="scroll-line"></div><span>scroll</span></div>
   </section>
 
-  <!-- FLOW SECTION -->
+  <!-- FLOW — HORIZONTAL -->
   <section class="flow-section" id="flujo">
     <div class="section-inner">
       <div class="section-tag reveal" data-i18n="flow.tag">Cómo funciona</div>
       <h2 class="section-title reveal reveal-delay-1" data-i18n="flow.title">Del dato a la decisión</h2>
       <div class="teal-line reveal reveal-delay-2"></div>
-      <p class="section-lead reveal reveal-delay-2" data-i18n="flow.lead">Este es el sistema que construyo. Cada paso conecta con el siguiente — y en cada uno puedo ayudar.</p>
+      <p class="section-lead reveal reveal-delay-2" data-i18n="flow.lead">Cada paso conecta con el siguiente. Puedo entrar en cualquier punto — o construir el sistema completo.</p>
 
-      <div class="flow-sources reveal reveal-delay-3">
-        <div class="source-pill"><span class="source-pill-dot"></span>CRM</div>
-        <div class="source-pill"><span class="source-pill-dot"></span>ERP</div>
-        <div class="source-pill"><span class="source-pill-dot"></span>Google Analytics</div>
-        <div class="source-pill"><span class="source-pill-dot"></span>Hojas de cálculo</div>
-        <div class="source-pill"><span class="source-pill-dot"></span>APIs externas</div>
-        <div class="source-pill"><span class="source-pill-dot"></span>Bases de datos</div>
-        <div class="source-pill"><span class="source-pill-dot"></span>IoT / sensores</div>
+      <div class="flow-scroll-wrap reveal reveal-delay-3">
+        <div class="flow-track">
+
+          <!-- Step 1: Sources -->
+          <div class="flow-node-wrap">
+            <div class="flow-node node-source">
+              <div class="flow-node-top">
+                <div class="flow-icon"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+                <span class="flow-label" data-i18n="flow.s1.label">Fuentes de datos</span>
+              </div>
+              <div class="flow-desc" data-i18n="flow.s1.desc">CRM, ERP, hojas de cálculo, APIs, bases de datos.</div>
+            </div>
+          </div>
+
+          <div class="flow-arrow"><div class="flow-arrow-inner"><div class="arrow-line"></div><div class="arrow-head">→</div></div></div>
+
+          <!-- Step 2: ETL -->
+          <div class="flow-node-wrap">
+            <div class="flow-node node-decisio">
+              <div class="flow-node-top">
+                <div class="flow-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+                <span class="flow-label" data-i18n="flow.s2.label">ETL y pipelines</span>
+              </div>
+              <div class="flow-desc" data-i18n="flow.s2.desc">Extracción, transformación y carga automatizada.</div>
+            </div>
+          </div>
+
+          <div class="flow-arrow"><div class="flow-arrow-inner"><div class="arrow-line"></div><div class="arrow-head">→</div></div></div>
+
+          <!-- Step 3: Quality -->
+          <div class="flow-node-wrap">
+            <div class="flow-node node-decisio">
+              <div class="flow-node-top">
+                <div class="flow-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <span class="flow-label" data-i18n="flow.s3.label">Calidad del dato</span>
+              </div>
+              <div class="flow-desc" data-i18n="flow.s3.desc">Validación, limpieza y auditoría de inconsistencias.</div>
+            </div>
+          </div>
+
+          <div class="flow-arrow"><div class="flow-arrow-inner"><div class="arrow-line"></div><div class="arrow-head">→</div></div></div>
+
+          <!-- Step 4: DWH -->
+          <div class="flow-node-wrap">
+            <div class="flow-node node-decisio">
+              <div class="flow-node-top">
+                <div class="flow-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+                <span class="flow-label" data-i18n="flow.s4.label">Data Warehouse</span>
+              </div>
+              <div class="flow-desc" data-i18n="flow.s4.desc">Modelo unificado, escalable y documentado.</div>
+            </div>
+          </div>
+
+          <div class="flow-arrow"><div class="flow-arrow-inner"><div class="arrow-line"></div><div class="arrow-head">→</div></div></div>
+
+          <!-- Step 5: Metrics -->
+          <div class="flow-node-wrap">
+            <div class="flow-node node-decisio">
+              <div class="flow-node-top">
+                <div class="flow-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                <span class="flow-label" data-i18n="flow.s5.label">Métricas</span>
+              </div>
+              <div class="flow-desc" data-i18n="flow.s5.desc">KPIs definidos con tu equipo. Una sola fuente de verdad.</div>
+            </div>
+          </div>
+
+          <div class="flow-arrow"><div class="flow-arrow-inner"><div class="arrow-line"></div><div class="arrow-head">→</div></div></div>
+
+          <!-- Step 6: Dashboard -->
+          <div class="flow-node-wrap">
+            <div class="flow-node node-decisio">
+              <div class="flow-node-top">
+                <div class="flow-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+                <span class="flow-label" data-i18n="flow.s6.label">Dashboard</span>
+              </div>
+              <div class="flow-desc" data-i18n="flow.s6.desc">Visualizaciones que tu equipo realmente usa.</div>
+            </div>
+          </div>
+
+          <div class="flow-arrow"><div class="flow-arrow-inner"><div class="arrow-line"></div><div class="arrow-head">→</div></div></div>
+
+          <!-- Step 7: Decision -->
+          <div class="flow-node-wrap">
+            <div class="flow-node node-decisio node-result">
+              <div class="flow-node-top">
+                <div class="flow-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                <span class="flow-label" data-i18n="flow.s7.label">Decisión informada</span>
+              </div>
+              <div class="flow-desc" data-i18n="flow.s7.desc">Tu equipo actúa con confianza y con datos reales.</div>
+            </div>
+          </div>
+
+        </div>
       </div>
 
-      <div class="flow-track">
-
-        <div class="flow-step node-source">
-          <div class="flow-node">
-            <div class="flow-node-head">
-              <div class="flow-node-icon"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
-              <span class="flow-node-label" data-i18n="flow.s1.label">Fuentes de datos</span>
-            </div>
-            <div class="flow-node-desc" data-i18n="flow.s1.desc">Tus datos están dispersos en múltiples sistemas. El punto de partida es saber qué tienes y dónde está.</div>
-          </div>
-          <div class="flow-connector"><div class="connector-dot"></div><div class="connector-line"></div><div class="connector-arrow">↓</div></div>
-          <div></div>
-        </div>
-
-        <div class="flow-step node-pipe">
-          <div class="flow-node" style="position:relative;">
-            <span class="decisio-badge">Decisio</span>
-            <div class="flow-node-head">
-              <div class="flow-node-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-              <span class="flow-node-label" data-i18n="flow.s2.label">Extracción y pipelines (ETL)</span>
-            </div>
-            <div class="flow-node-desc" data-i18n="flow.s2.desc">Diseño y automatizo los pipelines que mueven tus datos desde las fuentes hasta un lugar centralizado, de forma fiable y repetible.</div>
-          </div>
-          <div class="flow-connector"><div class="connector-dot"></div><div class="connector-line"></div><div class="connector-arrow">↓</div></div>
-          <div></div>
-        </div>
-
-        <div class="flow-step node-quality">
-          <div class="flow-node" style="position:relative;">
-            <span class="decisio-badge">Decisio</span>
-            <div class="flow-node-head">
-              <div class="flow-node-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-              <span class="flow-node-label" data-i18n="flow.s3.label">Calidad y validación del dato</span>
-            </div>
-            <div class="flow-node-desc" data-i18n="flow.s3.desc">Analizo inconsistencias, valores nulos, duplicados y anomalías. Un dato limpio es la base de cualquier decisión fiable.</div>
-          </div>
-          <div class="flow-connector"><div class="connector-dot"></div><div class="connector-line"></div><div class="connector-arrow">↓</div></div>
-          <div></div>
-        </div>
-
-        <div class="flow-step node-warehouse">
-          <div class="flow-node" style="position:relative;">
-            <span class="decisio-badge">Decisio</span>
-            <div class="flow-node-head">
-              <div class="flow-node-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
-              <span class="flow-node-label" data-i18n="flow.s4.label">Data Warehouse</span>
-            </div>
-            <div class="flow-node-desc" data-i18n="flow.s4.desc">Modelo de datos unificado, documentado y escalable. Un lugar único donde todos los datos de tu empresa conviven y tienen sentido juntos.</div>
-          </div>
-          <div class="flow-connector"><div class="connector-dot"></div><div class="connector-line"></div><div class="connector-arrow">↓</div></div>
-          <div></div>
-        </div>
-
-        <div class="flow-step node-metrics">
-          <div class="flow-node" style="position:relative;">
-            <span class="decisio-badge">Decisio</span>
-            <div class="flow-node-head">
-              <div class="flow-node-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-              <span class="flow-node-label" data-i18n="flow.s5.label">Definición de métricas</span>
-            </div>
-            <div class="flow-node-desc" data-i18n="flow.s5.desc">Trabajo con tu equipo para acordar qué medir, cómo calcularlo y quién es responsable de cada número. Sin esta capa, los dashboards generan debates, no decisiones.</div>
-          </div>
-          <div class="flow-connector"><div class="connector-dot"></div><div class="connector-line"></div><div class="connector-arrow">↓</div></div>
-          <div></div>
-        </div>
-
-        <div class="flow-step node-dashboard">
-          <div class="flow-node" style="position:relative;">
-            <span class="decisio-badge">Decisio</span>
-            <div class="flow-node-head">
-              <div class="flow-node-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-              <span class="flow-node-label" data-i18n="flow.s6.label">Dashboards y visualización</span>
-            </div>
-            <div class="flow-node-desc" data-i18n="flow.s6.desc">La capa visible del sistema. Diseño dashboards que tu equipo realmente usa: claros, rápidos y conectados a las métricas que importan.</div>
-          </div>
-          <div class="flow-connector"><div class="connector-dot"></div><div class="connector-line"></div><div class="connector-arrow">↓</div></div>
-          <div></div>
-        </div>
-
-        <div class="flow-step node-decision">
-          <div class="flow-node">
-            <div class="flow-node-head">
-              <div class="flow-node-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-              <span class="flow-node-label" data-i18n="flow.s7.label">Decisión informada</span>
-            </div>
-            <div class="flow-node-desc" data-i18n="flow.s7.desc">Tu equipo actúa con confianza, respaldado por datos reales. Aquí empieza el valor.</div>
-          </div>
-          <div class="flow-connector"></div>
-          <div></div>
-        </div>
-
-      </div>
-
-      <div class="flow-legend reveal">
-        <div class="legend-item"><div class="legend-dot" style="background:rgba(93,206,198,0.5);"></div><span data-i18n="flow.legend1">Punto de partida (tu empresa)</span></div>
-        <div class="legend-item"><div class="legend-dot" style="background:var(--teal);"></div><span data-i18n="flow.legend2">Donde interviene Decisio</span></div>
-        <div class="legend-item"><div class="legend-dot" style="background:rgba(15,155,142,0.6);"></div><span data-i18n="flow.legend3">Resultado final</span></div>
-      </div>
 
     </div>
   </section>
 
+  <!-- SERVICES -->
   <section class="what" id="servicios">
     <div class="section-inner">
-      <div class="section-tag reveal" data-i18n="services.tag">Lo que hago</div>
-      <h2 class="section-title reveal reveal-delay-1" data-i18n="services.title">Construyo el sistema que hace<br>que tus datos trabajen para ti</h2>
+      <div class="section-tag reveal" data-i18n="services.tag">Servicios</div>
+      <h2 class="section-title reveal reveal-delay-1" data-i18n="services.title">Lo que construyo</h2>
       <div class="teal-line reveal reveal-delay-2"></div>
-      <p class="section-lead reveal reveal-delay-2" data-i18n="services.lead">No me interesan los proyectos de adorno. Me interesan los que resuelven algo real: saber qué está pasando en tu negocio, detectar problemas antes de que duelan, y tomar decisiones con fundamento.</p>
       <div class="services-grid">
-        <div class="service-card reveal reveal-delay-1"><div class="service-card-inner"><div class="service-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div><div class="service-name" data-i18n="s1.name">Data Warehouse y ETL</div><div class="service-desc" data-i18n="s1.desc">Modelos de datos escalables y pipelines robustos que aguantan el crecimiento de tu negocio.</div></div></div>
-        <div class="service-card reveal reveal-delay-2"><div class="service-card-inner"><div class="service-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="service-name" data-i18n="s2.name">Calidad del dato</div><div class="service-desc" data-i18n="s2.desc">Análisis de métricas, tendencias y series temporales. Estadística sin humo.</div></div></div>
-        <div class="service-card reveal reveal-delay-3"><div class="service-card-inner"><div class="service-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><div class="service-name" data-i18n="s3.name">Dashboards</div><div class="service-desc" data-i18n="s3.desc">Visualizaciones que se entienden a la primera, para quien las necesite, cuando las necesite.</div></div></div>
-        <div class="service-card reveal reveal-delay-2"><div class="service-card-inner"><div class="service-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><div class="service-name" data-i18n="s4.name">Integración de fuentes</div><div class="service-desc" data-i18n="s4.desc">Uno datos dispersos de distintas herramientas en un único sitio coherente y fiable.</div></div></div>
-        <div class="service-card reveal reveal-delay-3"><div class="service-card-inner"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="service-name" data-i18n="s5.name">Definición de métricas</div><div class="service-desc" data-i18n="s5.desc">Trabajo con tu equipo para definir los KPIs que importan, con fórmulas claras y fuentes únicas.</div></div></div>
-        <div class="service-card reveal reveal-delay-4"><div class="service-card-inner"><div class="service-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><div class="service-name" data-i18n="s6.name">Proyecto starter</div><div class="service-desc" data-i18n="s6.desc">Auditoría de calidad del dato: el punto de entrada ideal. Acotado, precio fijo, resultados reales.</div></div></div>
+        <div class="service-card reveal reveal-delay-1"><div class="service-card-inner"><div class="service-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div><div class="service-name" data-i18n="s1.name">Data Warehouse y ETL</div><div class="service-desc" data-i18n="s1.desc">Infraestructura de datos escalable. Pipelines que funcionan solos.</div></div></div>
+        <div class="service-card reveal reveal-delay-2"><div class="service-card-inner"><div class="service-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="service-name" data-i18n="s2.name">Auditoría de calidad</div><div class="service-desc" data-i18n="s2.desc">Saber exactamente qué datos tienes, cuáles son fiables y qué falta.</div></div></div>
+        <div class="service-card reveal reveal-delay-3"><div class="service-card-inner"><div class="service-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><div class="service-name" data-i18n="s3.name">Dashboards</div><div class="service-desc" data-i18n="s3.desc">Visualizaciones claras, conectadas a datos reales.</div></div></div>
+        <div class="service-card reveal reveal-delay-2"><div class="service-card-inner"><div class="service-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><div class="service-name" data-i18n="s4.name">Integración de fuentes</div><div class="service-desc" data-i18n="s4.desc">Todos tus sistemas hablando el mismo idioma.</div></div></div>
+        <div class="service-card reveal reveal-delay-3"><div class="service-card-inner"><div class="service-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="service-name" data-i18n="s5.name">Definición de métricas</div><div class="service-desc" data-i18n="s5.desc">Los KPIs que importan, definidos con tu equipo.</div></div></div>
+        <div class="service-card reveal reveal-delay-4"><div class="service-card-inner"><div class="service-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><div class="service-name" data-i18n="s6.name">Proyecto starter</div><div class="service-desc" data-i18n="s6.desc">Auditoría de calidad del dato. 3 semanas. Precio fijo. El primer paso.</div></div></div>
       </div>
     </div>
   </section>
 
-  <section class="projects-section" id="proyectos">
-    <div class="section-inner">
-      <div class="section-tag reveal" data-i18n="projects.tag">Proyectos que me interesan</div>
-      <h2 class="section-title reveal reveal-delay-1" data-i18n="projects.title">Trabajo bien cuando hay<br>un problema real que resolver</h2>
-      <div class="teal-line reveal reveal-delay-2"></div>
-      <div class="projects-list">
-        <div class="project-item reveal reveal-delay-1"><span class="project-num">01</span><span class="project-name" data-i18n="p1">Construcción de Data Warehouses desde cero</span><span class="project-arrow">→</span></div>
-        <div class="project-item reveal reveal-delay-2"><span class="project-num">02</span><span class="project-name" data-i18n="p2">DWH + BI full stack</span><span class="project-arrow">→</span></div>
-        <div class="project-item reveal reveal-delay-3"><span class="project-num">03</span><span class="project-name" data-i18n="p3">Auditorías de calidad del dato</span><span class="project-arrow">→</span></div>
-        <div class="project-item reveal reveal-delay-4"><span class="project-num">04</span><span class="project-name" data-i18n="p4">Definición de métricas con equipo interno</span><span class="project-arrow">→</span></div>
-        <div class="project-item reveal reveal-delay-5"><span class="project-num">05</span><span class="project-name" data-i18n="p5">Automatización de reportes y pipelines</span><span class="project-arrow">→</span></div>
-      </div>
-    </div>
-  </section>
-
+  <!-- ABOUT -->
   <section class="about-section" id="sobre-mi">
     <div class="about-bg-text">Decisio</div>
     <div class="section-inner">
@@ -560,13 +396,11 @@
       <div class="teal-line reveal reveal-delay-2"></div>
       <div class="about-grid">
         <div class="about-text reveal reveal-delay-2">
-          <p data-i18n="about.p1">Empecé como <em>oceanógrafo</em> — midiendo, analizando y tratando de entender sistemas complejos con datos imperfectos. Con el tiempo descubrí que ese mismo trabajo existe en casi cualquier empresa.</p>
-          <p data-i18n="about.p2">Hoy diseño <em>sistemas integrados de decisión</em>: la infraestructura de datos, las métricas y los dashboards que permiten a un equipo tomar decisiones con confianza en lugar de intuición.</p>
-          <p data-i18n="about.p3">Priorizo la calidad sobre la cantidad. Trabajo despacio y con robustez. Soy honesto sobre lo que sé y lo que no. Y si me das la oportunidad, creo que lo notarás.</p>
-          <div class="about-aside" data-i18n="about.aside">Dato random: me apasionan el cachopo, las albóndigas en salsa y la sopa de mi abuela. Si sabes de un sitio bueno, hablamos.</div>
+          <p data-i18n="about.p1">Empecé como <em>oceanógrafo</em>. Años trabajando con datos complejos, incompletos y difíciles de interpretar. El mismo problema que tiene tu empresa.</p>
+          <p data-i18n="about.p2">Hoy diseño <em>sistemas integrados de decisión</em>: la infraestructura, las métricas y los dashboards que permiten tomar decisiones con datos en lugar de intuición.</p>
+          <p data-i18n="about.p3">Trabajo despacio y con robustez. Soy honesto sobre lo que sé y lo que no. Sin promesas vacías.</p>
         </div>
         <div class="about-stats reveal reveal-delay-3">
-          <div class="stat-card"><div class="stat-number">2</div><div class="stat-label" data-i18n="stat1">Clientes máximo simultáneos.<br>Tu proyecto recibe atención real.</div></div>
           <div class="stat-card"><div class="stat-number">∞</div><div class="stat-label" data-i18n="stat2">Confidencialidad total.<br>Tus datos nunca salen del proyecto.</div></div>
           <div class="stat-card"><div class="stat-number">0</div><div class="stat-label" data-i18n="stat3">Conflictos de interés.<br>Declaro cualquier solapamiento antes de empezar.</div></div>
         </div>
@@ -574,158 +408,138 @@
     </div>
   </section>
 
+  <!-- CONTACT -->
   <section class="contact-section" id="contacto">
     <div class="section-inner">
       <div style="text-align:center;">
         <div class="section-tag reveal" style="justify-content:center;" data-i18n="contact.tag">Contacto</div>
-        <h2 class="section-title reveal reveal-delay-1" style="text-align:center;" data-i18n="contact.title">¿Tienes un proyecto en mente?</h2>
+        <h2 class="section-title reveal reveal-delay-1" style="text-align:center;" data-i18n="contact.title">¿Tienes un proyecto?</h2>
         <div class="teal-line reveal reveal-delay-2" style="margin:1.5rem auto;"></div>
       </div>
       <div class="contact-wrap reveal reveal-delay-2">
         <div class="contact-card">
-          <p data-i18n="contact.desc">Cuéntame brevemente qué necesitas. Si encaja con lo que hago, te respondo en 24 horas y quedamos para hablar sin compromiso.</p>
+          <p data-i18n="contact.desc">Cuéntame qué necesitas. Si encaja, te respondo en 24 horas.</p>
           <a href="mailto:hola@decisio.es" class="contact-email">hola@decisio.es →</a>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer>
     <div class="footer-logo">Decis<span>io</span></div>
     <div class="footer-right">
       <div class="footer-tag">Integrated Decision System Designer</div>
-      <div class="footer-copy" data-i18n="footer.copy">España · Máx. 2 clientes · hola@decisio.es</div>
+      <div class="footer-copy" data-i18n="footer.copy">España · hola@decisio.es</div>
     </div>
   </footer>
 
   <script>
-    // ── TRANSLATIONS ──
     const translations = {
       es: {
-        "nav.services": "Servicios", "nav.projects": "Proyectos", "nav.about": "Sobre mí", "nav.cta": "Hablemos",
-        "hero.line1": "Tus datos", "hero.line2": "tienen", "hero.line3": "respuestas.",
-        "hero.tagline": "Ayudo a empresas a decidir mejor<br>— con sus propios datos.",
-        "hero.desc": "No solo construyo ETLs o dashboards. Diseño el sistema completo que conecta tus datos con tus decisiones: desde la infraestructura hasta las métricas que tu equipo necesita para actuar con confianza.",
-        "hero.cta1": "Cuéntame tu proyecto →", "hero.cta2": "Ver servicios",
-        "hero.constraint": "Trabajo con un máximo de 2 clientes a la vez — para hacerlo bien.",
-        "flow.tag": "Cómo funciona", "flow.title": "Del dato a la decisión",
-        "flow.lead": "Este es el sistema que construyo. Cada paso conecta con el siguiente — y en cada uno puedo ayudar.",
-        "flow.s1.label": "Fuentes de datos", "flow.s1.desc": "Tus datos están dispersos en múltiples sistemas. El punto de partida es saber qué tienes y dónde está.",
-        "flow.s2.label": "Extracción y pipelines (ETL)", "flow.s2.desc": "Diseño y automatizo los pipelines que mueven tus datos desde las fuentes hasta un lugar centralizado, de forma fiable y repetible.",
-        "flow.s3.label": "Calidad y validación del dato", "flow.s3.desc": "Analizo inconsistencias, valores nulos, duplicados y anomalías. Un dato limpio es la base de cualquier decisión fiable.",
-        "flow.s4.label": "Data Warehouse", "flow.s4.desc": "Modelo de datos unificado, documentado y escalable. Un lugar único donde todos los datos de tu empresa conviven y tienen sentido juntos.",
-        "flow.s5.label": "Definición de métricas", "flow.s5.desc": "Trabajo con tu equipo para acordar qué medir, cómo calcularlo y quién es responsable de cada número. Sin esta capa, los dashboards generan debates, no decisiones.",
-        "flow.s6.label": "Dashboards y visualización", "flow.s6.desc": "La capa visible del sistema. Diseño dashboards que tu equipo realmente usa: claros, rápidos y conectados a las métricas que importan.",
-        "flow.s7.label": "Decisión informada", "flow.s7.desc": "Tu equipo actúa con confianza, respaldado por datos reales. Aquí empieza el valor.",
-        "flow.legend1": "Punto de partida (tu empresa)", "flow.legend2": "Donde interviene Decisio", "flow.legend3": "Resultado final",
-        "services.title": "Construyo el sistema que hace<br>que tus datos trabajen para ti",
-        "services.lead": "No me interesan los proyectos de adorno. Me interesan los que resuelven algo real: saber qué está pasando en tu negocio, detectar problemas antes de que duelan, y tomar decisiones con fundamento.",
-        "s1.name": "Data Warehouse y ETL", "s1.desc": "Modelos de datos escalables y pipelines robustos que aguantan el crecimiento de tu negocio.",
-        "s2.name": "Calidad del dato", "s2.desc": "Análisis de métricas, tendencias y series temporales. Estadística sin humo.",
-        "s3.name": "Dashboards", "s3.desc": "Visualizaciones que se entienden a la primera, para quien las necesite, cuando las necesite.",
-        "s4.name": "Integración de fuentes", "s4.desc": "Uno datos dispersos de distintas herramientas en un único sitio coherente y fiable.",
-        "s5.name": "Definición de métricas", "s5.desc": "Trabajo con tu equipo para definir los KPIs que importan, con fórmulas claras y fuentes únicas.",
-        "s6.name": "Proyecto starter", "s6.desc": "Auditoría de calidad del dato: el punto de entrada ideal. Acotado, precio fijo, resultados reales.",
-        "projects.tag": "Proyectos que me interesan",
-        "projects.title": "Trabajo bien cuando hay<br>un problema real que resolver",
-        "p1": "Construcción de Data Warehouses desde cero", "p2": "DWH + BI full stack",
-        "p3": "Auditorías de calidad del dato", "p4": "Definición de métricas con equipo interno",
-        "p5": "Automatización de reportes y pipelines",
-        "about.tag": "Sobre mí", "about.title": "De medir el océano<br>a medir tu negocio",
-        "about.p1": "Empecé como <em>oceanógrafo</em> — midiendo, analizando y tratando de entender sistemas complejos con datos imperfectos. Con el tiempo descubrí que ese mismo trabajo existe en casi cualquier empresa.",
-        "about.p2": "Hoy diseño <em>sistemas integrados de decisión</em>: la infraestructura de datos, las métricas y los dashboards que permiten a un equipo tomar decisiones con confianza en lugar de intuición.",
-        "about.p3": "Priorizo la calidad sobre la cantidad. Trabajo despacio y con robustez. Soy honesto sobre lo que sé y lo que no. Y si me das la oportunidad, creo que lo notarás.",
-        "about.aside": "Dato random: me apasionan el cachopo, las albóndigas en salsa y la sopa de mi abuela. Si sabes de un sitio bueno, hablamos.",
-        "stat1": "Clientes máximo simultáneos.<br>Tu proyecto recibe atención real.",
-        "stat2": "Confidencialidad total.<br>Tus datos nunca salen del proyecto.",
-        "stat3": "Conflictos de interés.<br>Declaro cualquier solapamiento antes de empezar.",
-        "contact.tag": "Contacto", "contact.title": "¿Tienes un proyecto en mente?",
-        "contact.desc": "Cuéntame brevemente qué necesitas. Si encaja con lo que hago, te respondo en 24 horas y quedamos para hablar sin compromiso.",
-        "footer.copy": "España · Máx. 2 clientes · hola@decisio.es"
+        "nav.flow":"Cómo funciona","nav.services":"Servicios","nav.about":"Sobre mí","nav.cta":"Hablemos",
+        "hero.line1":"Tus datos","hero.line2":"tienen","hero.line3":"respuestas.",
+        "hero.desc":"Creo el sistema completo que conecta tus datos con tus decisiones.",
+        "hero.cta1":"Cuéntame tu proyecto →","hero.cta2":"Cómo funciona",
+        "flow.tag":"Cómo funciona","flow.title":"Del dato a la decisión",
+        "flow.lead":"Cada paso conecta con el siguiente. Puedo entrar en cualquier punto — o construir el sistema completo.",
+        "flow.s1.label":"Fuentes de datos","flow.s1.desc":"CRM, ERP, hojas de cálculo, APIs, bases de datos.",
+        "flow.s2.label":"ETL y pipelines","flow.s2.desc":"Extracción, transformación y carga automatizada.",
+        "flow.s3.label":"Calidad del dato","flow.s3.desc":"Validación, limpieza y auditoría de inconsistencias.",
+        "flow.s4.label":"Data Warehouse","flow.s4.desc":"Modelo unificado, escalable y documentado.",
+        "flow.s5.label":"Métricas","flow.s5.desc":"KPIs definidos con tu equipo. Una sola fuente de verdad.",
+        "flow.s6.label":"Dashboard","flow.s6.desc":"Visualizaciones que tu equipo realmente usa.",
+        "flow.s7.label":"Decisión informada","flow.s7.desc":"Tu equipo actúa con confianza y con datos reales.",
+        "flow.legend1":"Punto de partida","flow.legend2":"Donde interviene Decisio","flow.legend3":"Resultado",
+        "services.tag":"Servicios","services.title":"Lo que construyo","services.lead":"Proyectos acotados, precio fijo, entregables concretos.",
+        "s1.name":"Data Warehouse y ETL","s1.desc":"Infraestructura de datos escalable. Pipelines que funcionan solos.",
+        "s2.name":"Auditoría de calidad","s2.desc":"Saber exactamente qué datos tienes, cuáles son fiables y qué falta.",
+        "s3.name":"Dashboards","s3.desc":"Visualizaciones claras, conectadas a datos reales.",
+        "s4.name":"Integración de fuentes","s4.desc":"Todos tus sistemas hablando el mismo idioma.",
+        "s5.name":"Definición de métricas","s5.desc":"Los KPIs que importan, definidos con tu equipo.",
+        "s6.name":"Proyecto starter","s6.desc":"Auditoría de calidad del dato. 3 semanas. Precio fijo. El primer paso.",
+        "projects.tag":"Proyectos","projects.title":"Trabajo bien con problemas reales",
+        "p1":"Data Warehouses desde cero","p2":"DWH + BI full stack",
+        "p3":"Auditorías de calidad del dato","p4":"Definición de métricas con el equipo","p5":"Automatización de reportes y pipelines",
+        "about.tag":"Sobre mí","about.title":"De medir el océano<br>a medir tu negocio",
+        "about.p1":"Empecé como <em>oceanógrafo</em>. Años trabajando con datos complejos, incompletos y difíciles de interpretar. El mismo problema que tiene tu empresa.",
+        "about.p2":"Hoy diseño <em>sistemas integrados de decisión</em>: la infraestructura, las métricas y los dashboards que permiten tomar decisiones con datos en lugar de intuición.",
+        "about.p3":"Trabajo despacio y con robustez. Soy honesto sobre lo que sé y lo que no. Sin promesas vacías.",
+        "stat2":"Confidencialidad total.<br>Tus datos nunca salen del proyecto.",
+        "stat3":"Conflictos de interés.<br>Declaro cualquier solapamiento antes de empezar.",
+        "contact.tag":"Contacto","contact.title":"¿Tienes un proyecto?",
+        "contact.desc":"Cuéntame qué necesitas. Si encaja, te respondo en 24 horas.",
+        "footer.copy":"España · hola@decisio.es"
       },
       ca: {
-        "nav.services": "Serveis", "nav.projects": "Projectes", "nav.about": "Sobre mi", "nav.cta": "Parlem",
-        "hero.line1": "Les teves dades", "hero.line2": "tenen", "hero.line3": "respostes.",
-        "hero.tagline": "Ajudo empreses a decidir millor<br>— amb les seves pròpies dades.",
-        "hero.desc": "No només construeixo ETLs o dashboards. Dissenyo el sistema complet que connecta les teves dades amb les teves decisions: des de la infraestructura fins a les mètriques que el teu equip necessita per actuar amb confiança.",
-        "hero.cta1": "Explica'm el teu projecte →", "hero.cta2": "Veure serveis",
-        "hero.constraint": "Treballo amb un màxim de 2 clients alhora — per fer-ho bé.",
-        "flow.tag": "Com funciona", "flow.title": "De la dada a la decisió",
-        "flow.lead": "Aquest és el sistema que construeixo. Cada pas connecta amb el següent — i en cadascun puc ajudar.",
-        "flow.s1.label": "Fonts de dades", "flow.s1.desc": "Les teves dades estan disperses en múltiples sistemes. El punt de partida és saber què tens i on és.",
-        "flow.s2.label": "Extracció i pipelines (ETL)", "flow.s2.desc": "Dissenyo i automatitzo els pipelines que mouen les teves dades des de les fonts fins a un lloc centralitzat, de manera fiable i repetible.",
-        "flow.s3.label": "Qualitat i validació de la dada", "flow.s3.desc": "Analitzo inconsistències, valors nuls, duplicats i anomalies. Una dada neta és la base de qualsevol decisió fiable.",
-        "flow.s4.label": "Data Warehouse", "flow.s4.desc": "Model de dades unificat, documentat i escalable. Un lloc únic on totes les dades de la teva empresa conviuen i tenen sentit juntes.",
-        "flow.s5.label": "Definició de mètriques", "flow.s5.desc": "Treballo amb el teu equip per acordar què mesurar, com calcular-ho i qui és responsable de cada número. Sense aquesta capa, els dashboards generen debats, no decisions.",
-        "flow.s6.label": "Dashboards i visualització", "flow.s6.desc": "La capa visible del sistema. Dissenyo dashboards que el teu equip realment fa servir: clars, ràpids i connectats a les mètriques que importen.",
-        "flow.s7.label": "Decisió informada", "flow.s7.desc": "El teu equip actua amb confiança, recolzat per dades reals. Aquí comença el valor.",
-        "flow.legend1": "Punt de partida (la teva empresa)", "flow.legend2": "On intervé Decisio", "flow.legend3": "Resultat final",
-        "services.title": "Construeixo el sistema que fa<br>que les teves dades treballin per a tu",
-        "services.lead": "No m'interessen els projectes d'aparador. M'interessen els que resolen quelcom real: saber què passa al teu negoci, detectar problemes abans que facin mal, i prendre decisions amb fonament.",
-        "s1.name": "Data Warehouse i ETL", "s1.desc": "Models de dades escalables i pipelines robustos que aguanten el creixement del teu negoci.",
-        "s2.name": "Qualitat de la dada", "s2.desc": "Anàlisi de mètriques, tendències i sèries temporals. Estadística sense fum.",
-        "s3.name": "Dashboards", "s3.desc": "Visualitzacions que s'entenen a la primera, per a qui les necessiti, quan les necessiti.",
-        "s4.name": "Integració de fonts", "s4.desc": "Uneixo dades disperses de diverses eines en un únic lloc coherent i fiable.",
-        "s5.name": "Definició de mètriques", "s5.desc": "Treballo amb el teu equip per definir els KPIs que importen, amb fórmules clares i fonts úniques.",
-        "s6.name": "Projecte starter", "s6.desc": "Auditoria de qualitat de la dada: el punt d'entrada ideal. Acotat, preu fix, resultats reals.",
-        "projects.tag": "Projectes que m'interessen",
-        "projects.title": "Treballo bé quan hi ha<br>un problema real que resoldre",
-        "p1": "Construcció de Data Warehouses des de zero", "p2": "DWH + BI full stack",
-        "p3": "Auditories de qualitat de la dada", "p4": "Definició de mètriques amb equip intern",
-        "p5": "Automatització d'informes i pipelines",
-        "about.tag": "Sobre mi", "about.title": "De mesurar l'oceà<br>a mesurar el teu negoci",
-        "about.p1": "Vaig començar com a <em>oceanògraf</em> — mesurant, analitzant i tractant d'entendre sistemes complexos amb dades imperfectes. Amb el temps vaig descobrir que aquest mateix treball existeix a gairebé qualsevol empresa.",
-        "about.p2": "Avui dissenyo <em>sistemes integrats de decisió</em>: la infraestructura de dades, les mètriques i els dashboards que permeten a un equip prendre decisions amb confiança en lloc d'intuïció.",
-        "about.p3": "Prioritzo la qualitat sobre la quantitat. Treballo a poc a poc i amb robustesa. Soc honest sobre el que sé i el que no. I si em dones l'oportunitat, crec que ho notaràs.",
-        "about.aside": "Dada random: m'apassionen el cachopo, les mandonguilles en salsa i la sopa de la meva àvia. Si saps d'un lloc bo, parlem.",
-        "stat1": "Clients màxim simultanis.<br>El teu projecte rep atenció real.",
-        "stat2": "Confidencialitat total.<br>Les teves dades mai surten del projecte.",
-        "stat3": "Conflictes d'interès.<br>Declaro qualsevol solapament abans de començar.",
-        "contact.tag": "Contacte", "contact.title": "Tens un projecte en ment?",
-        "contact.desc": "Explica'm breument què necessites. Si encaixa amb el que faig, et respondré en 24 hores i quedem per parlar sense compromís.",
-        "footer.copy": "Espanya · Màx. 2 clients · hola@decisio.es"
+        "nav.flow":"Com funciona","nav.services":"Serveis","nav.about":"Sobre mi","nav.cta":"Parlem",
+        "hero.line1":"Les teves dades","hero.line2":"tenen","hero.line3":"respostes.",
+        "hero.desc":"Creo el sistema complet que connecta les teves dades amb les teves decisions.",
+        "hero.cta1":"Explica'm el teu projecte →","hero.cta2":"Com funciona",
+        "flow.tag":"Com funciona","flow.title":"De la dada a la decisió",
+        "flow.lead":"Cada pas connecta amb el següent. Puc entrar en qualsevol punt — o construir el sistema complet.",
+        "flow.s1.label":"Fonts de dades","flow.s1.desc":"CRM, ERP, fulls de càlcul, APIs, bases de dades.",
+        "flow.s2.label":"ETL i pipelines","flow.s2.desc":"Extracció, transformació i càrrega automatitzada.",
+        "flow.s3.label":"Qualitat de la dada","flow.s3.desc":"Validació, neteja i auditoria d'inconsistències.",
+        "flow.s4.label":"Data Warehouse","flow.s4.desc":"Model unificat, escalable i documentat.",
+        "flow.s5.label":"Mètriques","flow.s5.desc":"KPIs definits amb el teu equip. Una sola font de veritat.",
+        "flow.s6.label":"Dashboard","flow.s6.desc":"Visualitzacions que el teu equip realment fa servir.",
+        "flow.s7.label":"Decisió informada","flow.s7.desc":"El teu equip actua amb confiança i amb dades reals.",
+        "flow.legend1":"Punt de partida","flow.legend2":"On intervé Decisio","flow.legend3":"Resultat",
+        "services.tag":"Serveis","services.title":"El que construeixo","services.lead":"Projectes acotats, preu fix, lliurables concrets.",
+        "s1.name":"Data Warehouse i ETL","s1.desc":"Infraestructura de dades escalable. Pipelines que funcionen sols.",
+        "s2.name":"Auditoria de qualitat","s2.desc":"Saber exactament quines dades tens, quines són fiables i què falta.",
+        "s3.name":"Dashboards","s3.desc":"Visualitzacions clares, connectades a dades reals.",
+        "s4.name":"Integració de fonts","s4.desc":"Tots els teus sistemes parlant el mateix idioma.",
+        "s5.name":"Definició de mètriques","s5.desc":"Els KPIs que importen, definits amb el teu equip.",
+        "s6.name":"Projecte starter","s6.desc":"Auditoria de qualitat de la dada. 3 setmanes. Preu fix. El primer pas.",
+        "projects.tag":"Projectes","projects.title":"Treballo bé amb problemes reals",
+        "p1":"Data Warehouses des de zero","p2":"DWH + BI full stack",
+        "p3":"Auditories de qualitat de la dada","p4":"Definició de mètriques amb l'equip","p5":"Automatització d'informes i pipelines",
+        "about.tag":"Sobre mi","about.title":"De mesurar l'oceà<br>a mesurar el teu negoci",
+        "about.p1":"Vaig començar com a <em>oceanògraf</em>. Anys treballant amb dades complexes, incompletes i difícils d'interpretar. El mateix problema que té la teva empresa.",
+        "about.p2":"Avui dissenyo <em>sistemes integrats de decisió</em>: la infraestructura, les mètriques i els dashboards que permeten prendre decisions amb dades en lloc d'intuïció.",
+        "about.p3":"Treballo a poc a poc i amb robustesa. Soc honest sobre el que sé i el que no. Sense promeses buides.",
+        "stat2":"Confidencialitat total.<br>Les teves dades mai surten del projecte.",
+        "stat3":"Conflictes d'interès.<br>Declaro qualsevol solapament abans de començar.",
+        "contact.tag":"Contacte","contact.title":"Tens un projecte?",
+        "contact.desc":"Explica'm què necessites. Si encaixa, et respondré en 24 hores.",
+        "footer.copy":"Espanya · hola@decisio.es"
       },
       en: {
-        "nav.services": "Services", "nav.projects": "Projects", "nav.about": "About", "nav.cta": "Let's talk",
-        "hero.line1": "Your data", "hero.line2": "holds", "hero.line3": "answers.",
-        "hero.tagline": "I help companies make better decisions<br>— using their own data.",
-        "hero.desc": "I don't just build ETLs or dashboards. I design the complete system that connects your data to your decisions: from infrastructure to the metrics your team needs to act with confidence.",
-        "hero.cta1": "Tell me about your project →", "hero.cta2": "See services",
-        "hero.constraint": "I work with a maximum of 2 clients at a time — to do it properly.",
-        "flow.tag": "How it works", "flow.title": "From data to decision",
-        "flow.lead": "This is the system I build. Each step connects to the next — and I can help at every one.",
-        "flow.s1.label": "Data sources", "flow.s1.desc": "Your data is scattered across multiple systems. The starting point is knowing what you have and where it lives.",
-        "flow.s2.label": "Extraction & pipelines (ETL)", "flow.s2.desc": "I design and automate the pipelines that move your data from its sources to a centralised place, reliably and repeatably.",
-        "flow.s3.label": "Data quality & validation", "flow.s3.desc": "I analyse inconsistencies, null values, duplicates and anomalies. Clean data is the foundation of any reliable decision.",
-        "flow.s4.label": "Data Warehouse", "flow.s4.desc": "A unified, documented, scalable data model. One place where all your company's data coexists and makes sense together.",
-        "flow.s5.label": "Metrics definition", "flow.s5.desc": "I work with your team to agree what to measure, how to calculate it, and who owns each number. Without this layer, dashboards generate debates, not decisions.",
-        "flow.s6.label": "Dashboards & visualisation", "flow.s6.desc": "The visible layer of the system. I design dashboards your team actually uses: clear, fast, and connected to the metrics that matter.",
-        "flow.s7.label": "Informed decision", "flow.s7.desc": "Your team acts with confidence, backed by real data. This is where the value begins.",
-        "flow.legend1": "Starting point (your company)", "flow.legend2": "Where Decisio steps in", "flow.legend3": "End result",
-        "services.title": "I build the system that makes<br>your data work for you",
-        "services.lead": "I'm not interested in vanity projects. I'm interested in ones that solve something real: knowing what's happening in your business, spotting problems before they hurt, and making decisions backed by data.",
-        "s1.name": "Data Warehouse & ETL", "s1.desc": "Scalable data models and robust pipelines built to grow with your business.",
-        "s2.name": "Data quality", "s2.desc": "Metrics analysis, trends and time series. Statistics without the smoke and mirrors.",
-        "s3.name": "Dashboards", "s3.desc": "Visualisations that make sense at a glance, for whoever needs them, whenever they need them.",
-        "s4.name": "Source integration", "s4.desc": "I unify scattered data from different tools into one coherent, reliable place.",
-        "s5.name": "Metrics definition", "s5.desc": "I work with your team to define the KPIs that matter, with clear formulas and single sources of truth.",
-        "s6.name": "Starter project", "s6.desc": "A data quality audit: the ideal entry point. Scoped, fixed price, real results.",
-        "projects.tag": "Projects I'm interested in",
-        "projects.title": "I do my best work when there's<br>a real problem to solve",
-        "p1": "Data Warehouse builds from scratch", "p2": "DWH + BI full stack",
-        "p3": "Data quality audits", "p4": "Metrics definition with internal teams",
-        "p5": "Report and pipeline automation",
-        "about.tag": "About", "about.title": "From measuring the ocean<br>to measuring your business",
-        "about.p1": "I started as an <em>oceanographer</em> — measuring, analysing, and trying to understand complex systems with imperfect data. Over time I realised that same work exists in almost every company.",
-        "about.p2": "Today I design <em>integrated decision systems</em>: the data infrastructure, metrics, and dashboards that let a team make decisions with confidence instead of gut feeling.",
-        "about.p3": "I prioritise quality over quantity. I work methodically and with robustness. I'm honest about what I know and what I don't. Give me the chance, and I think you'll notice.",
-        "about.aside": "Random fact: I love cachopo, meatballs in sauce, and my grandmother's soup. If you know a good spot, let's talk.",
-        "stat1": "Maximum simultaneous clients.<br>Your project gets real attention.",
-        "stat2": "Full confidentiality.<br>Your data never leaves the project.",
-        "stat3": "Conflicts of interest.<br>I declare any overlap before we start.",
-        "contact.tag": "Contact", "contact.title": "Got a project in mind?",
-        "contact.desc": "Tell me briefly what you need. If it fits what I do, I'll reply within 24 hours and we can talk with no strings attached.",
-        "footer.copy": "Spain · Max. 2 clients · hola@decisio.es"
+        "nav.flow":"How it works","nav.services":"Services","nav.about":"About","nav.cta":"Let's talk",
+        "hero.line1":"Your data","hero.line2":"holds","hero.line3":"answers.",
+        "hero.desc":"I build the complete system that connects your data to your decisions.",
+        "hero.cta1":"Tell me about your project →","hero.cta2":"How it works",
+        "flow.tag":"How it works","flow.title":"From data to decision",
+        "flow.lead":"Each step connects to the next. I can come in at any point — or build the whole system.",
+        "flow.s1.label":"Data sources","flow.s1.desc":"CRM, ERP, spreadsheets, APIs, databases.",
+        "flow.s2.label":"ETL & pipelines","flow.s2.desc":"Automated extraction, transformation and loading.",
+        "flow.s3.label":"Data quality","flow.s3.desc":"Validation, cleaning and inconsistency auditing.",
+        "flow.s4.label":"Data Warehouse","flow.s4.desc":"Unified, scalable, documented data model.",
+        "flow.s5.label":"Metrics","flow.s5.desc":"KPIs defined with your team. One source of truth.",
+        "flow.s6.label":"Dashboard","flow.s6.desc":"Visualisations your team actually uses.",
+        "flow.s7.label":"Informed decision","flow.s7.desc":"Your team acts with confidence and real data.",
+        "flow.legend1":"Starting point","flow.legend2":"Where Decisio steps in","flow.legend3":"Result",
+        "services.tag":"Services","services.title":"What I build","services.lead":"Scoped projects, fixed price, concrete deliverables.",
+        "s1.name":"Data Warehouse & ETL","s1.desc":"Scalable data infrastructure. Pipelines that run themselves.",
+        "s2.name":"Quality audit","s2.desc":"Know exactly what data you have, what's reliable, and what's missing.",
+        "s3.name":"Dashboards","s3.desc":"Clear visualisations connected to real data.",
+        "s4.name":"Source integration","s4.desc":"All your systems speaking the same language.",
+        "s5.name":"Metrics definition","s5.desc":"The KPIs that matter, defined with your team.",
+        "s6.name":"Starter project","s6.desc":"Data quality audit. 3 weeks. Fixed price. The first step.",
+        "projects.tag":"Projects","projects.title":"I do my best work on real problems",
+        "p1":"Data Warehouses from scratch","p2":"DWH + BI full stack",
+        "p3":"Data quality audits","p4":"Metrics definition with internal teams","p5":"Report and pipeline automation",
+        "about.tag":"About","about.title":"From measuring the ocean<br>to measuring your business",
+        "about.p1":"I started as an <em>oceanographer</em>. Years working with complex, incomplete, hard-to-interpret data. The same problem your company has.",
+        "about.p2":"Today I design <em>integrated decision systems</em>: the infrastructure, metrics and dashboards that let teams make decisions with data instead of gut feeling.",
+        "about.p3":"I work methodically and with robustness. Honest about what I know and what I don't. No empty promises.",
+        "stat2":"Full confidentiality.<br>Your data never leaves the project.",
+        "stat3":"No conflicts of interest.<br>I disclose any overlap before we start.",
+        "contact.tag":"Contact","contact.title":"Got a project?",
+        "contact.desc":"Tell me what you need. If it fits, I'll reply within 24 hours.",
+        "footer.copy":"Spain · hola@decisio.es"
       }
     };
 
@@ -734,38 +548,26 @@
     function setLang(lang) {
       if (lang === currentLang) return;
       currentLang = lang;
-
-      // Update active button
-      document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
-      });
-
-      // Update html lang
+      document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent.toLowerCase() === lang));
       document.documentElement.lang = lang;
-
-      // Fade out, swap, fade in
       const els = document.querySelectorAll('[data-i18n]');
       els.forEach(el => el.style.opacity = '0');
-
       setTimeout(() => {
         els.forEach(el => {
-          const key = el.getAttribute('data-i18n');
-          const text = translations[lang][key];
-          if (text !== undefined) el.innerHTML = text;
+          const t = translations[lang][el.getAttribute('data-i18n')];
+          if (t !== undefined) el.innerHTML = t;
+          el.style.opacity = '1';
         });
-        els.forEach(el => el.style.opacity = '1');
       }, 200);
     }
 
-    // Nav scroll
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
 
-    // Scroll reveal
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.reveal, .flow-step').forEach(el => observer.observe(el));
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
